@@ -2,9 +2,12 @@
 @use '@/styles/theme';
 
 .land {
-  max-width: 1600px;
   margin: auto;
   text-align: center;
+  > section {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
 }
 
 .main__img {
