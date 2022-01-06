@@ -26,13 +26,12 @@ export const transJSXtoDOM = (tag: string | typeof Node, attrs: anyObjectInterfa
   if ($elem instanceof HTMLElement) {
     Object.entries(attrs || {}).forEach(([attrKey, attrValue]) => {
       if (!attrValue) return;
-
       if (attrKey.startsWith('on') && attrKey in window) {
         $elem.addEventListener(attrKey.slice(2), attrValue);
         return;
       }
 
-      $elem.setAttribute(attrKey, attrValue === 'style' ? transObjStyleToString(attrValue) : attrValue);
+      $elem.setAttribute(attrKey, attrKey === 'style' ? transObjStyleToString(attrValue) : attrValue);
     });
   }
 
