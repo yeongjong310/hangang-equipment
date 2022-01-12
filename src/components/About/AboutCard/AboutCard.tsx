@@ -1,7 +1,6 @@
 import { transJSXtoDOM } from '@/base/transJSXtoDOM';
 import Component from '@/base/Component';
 import style from './AboutCard.module.scss';
-import { IconDefinition } from '@fortawesome/free-solid-svg-icons/';
 import { FontAwesome } from '@/components';
 import { FontAwesomeProps } from '@/components/FontAwesome/FontAwesome';
 
