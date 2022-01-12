@@ -1,36 +1,23 @@
 import { transJSXtoDOM } from '@/base/transJSXtoDOM';
 import Component from '@/base/Component';
 import style from './AboutCard.module.scss';
-import { stringToDOMArray } from '@/utils';
-import { icon as _icon } from '@fortawesome/fontawesome-svg-core';
-import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
-
+import { IconLookup } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesome } from '@/components';
 interface Props {
   title: string;
   description: string;
-  icon: IconDefinition;
+  icon: IconLookup;
   iconTitle: string;
 }
 
 /** @jsx transJSXtoDOM */
 export default class AboutCard extends Component<Props> {
-  createDOMIcon() {
-    const { icon, iconTitle } = this.props;
-    console.log(icon);
-    const iconTemplete = _icon(icon, {
-      transform: { size: 33 },
-      title: iconTitle,
-    }).html;
-    console.log(iconTemplete);
-    return stringToDOMArray(iconTemplete[0]);
-  }
-
   template() {
-    const { title, description } = this.props;
+    const { title, description, icon } = this.props;
 
     return (
       <li class={style.aboutCard}>
-        {this.createDOMIcon.call(this)}
+        <FontAwesome title={title} description={description} icon={icon} size={33} />
         <h4>{title}</h4>
         <p>{description}</p>
       </li>
