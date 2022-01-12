@@ -1,22 +1,25 @@
 import Component from '@/base/component';
 import { transJSXtoDOM } from '@/base/transJSXtoDOM';
 import { stringToDOMArray } from '@/utils';
-import { IconLookup, icon as _icon } from '@fortawesome/fontawesome-svg-core';
+import { icon as _icon, IconDefinition as iconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { IconDefinition } from '@fortawesome/free-solid-svg-icons/';
 
-interface Props {
+export interface FontAwesomeProps {
   title: string;
   description: string;
-  icon: IconLookup;
+  icon: IconDefinition;
   iconTitle?: string;
   size?: number;
 }
 
 /** @jsx transJSXtoDOM */
-export default class FontAwesome extends Component<Props> {
+export default class FontAwesome extends Component<FontAwesomeProps> {
   createDOMIcon() {
     const { icon, iconTitle, size } = this.props;
-
-    const iconTemplete = _icon(icon, {
+    // fontAwesome에서 제공하는 타입의 불일치로 인해 아래와 같이 작성함
+    // IconName에 repeat1-alt... 를 사용할 경우 문제가 생길 수 있음.
+    // 추후 코드 수정 필요
+    const iconTemplete = _icon(icon as iconDefinition, {
       transform: { size },
       title: iconTitle,
     }).html;

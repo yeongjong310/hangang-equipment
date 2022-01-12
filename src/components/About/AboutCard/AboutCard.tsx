@@ -1,17 +1,12 @@
 import { transJSXtoDOM } from '@/base/transJSXtoDOM';
 import Component from '@/base/Component';
 import style from './AboutCard.module.scss';
-import { IconLookup } from '@fortawesome/fontawesome-svg-core';
+import { IconDefinition } from '@fortawesome/free-solid-svg-icons/';
 import { FontAwesome } from '@/components';
-interface Props {
-  title: string;
-  description: string;
-  icon: IconLookup;
-  iconTitle: string;
-}
+import { FontAwesomeProps } from '@/components/FontAwesome/FontAwesome';
 
 /** @jsx transJSXtoDOM */
-export default class AboutCard extends Component<Props> {
+export default class AboutCard extends Component<FontAwesomeProps> {
   template() {
     const { title, description, icon } = this.props;
 
