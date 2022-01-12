@@ -1,4 +1,4 @@
-import { Node } from '@/components';
+import Component from '@/base/component';
 
 export interface anyObjectInterface {
   [propKey: string]: any;
@@ -11,7 +11,11 @@ const transObjStyleToString = (styles: anyObjectInterface) => {
 };
 
 // @babel-plugin-transform-react-jsx에 의해 JSX 문법이 컴파일되고 이하 함수가 실행됩니다.
-export const transJSXtoDOM = (tag: string | typeof Node, attrs: anyObjectInterface, ...children: HTMLElement[]) => {
+export const transJSXtoDOM = (
+  tag: string | typeof Component,
+  attrs: anyObjectInterface,
+  ...children: HTMLElement[]
+) => {
   // 1. components
   if (typeof tag === 'function' && tag?.component === Symbol.for('JSComponent')) {
     const component = new tag({ ...attrs, children });

@@ -1,5 +1,5 @@
-import { transJSXtoDOM } from '@/utils/babel';
-import { Node } from '@/components';
+import { transJSXtoDOM } from '@/base/transJSXtoDOM';
+import Component from '@/base/Component';
 import styles from './ServiceQuestion.module.scss';
 import { generateClassName } from '@/utils';
 import { icon } from '@fortawesome/fontawesome-svg-core';
@@ -14,7 +14,7 @@ interface Props {
 }
 
 /** @jsx transJSXtoDOM */
-export default class ServiceQuestion extends Node<Props> {
+export default class ServiceQuestion extends Component<Props> {
   componentDidMount() {
     this.setIcon();
   }

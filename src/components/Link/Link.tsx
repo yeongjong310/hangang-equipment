@@ -1,5 +1,5 @@
-import { transJSXtoDOM } from '@/utils/babel';
-import { Node } from '@/components';
+import { transJSXtoDOM } from '@/base/transJSXtoDOM';
+import Component from '@/base/Component';
 import { RouterContext } from '@/GlobalState/GlobalState';
 import style from './Link.module.scss';
 
@@ -12,7 +12,7 @@ interface Props {
 }
 
 /** @jsx transJSXtoDOM */
-export default class Link extends Node<Props> {
+export default class Link extends Component<Props> {
   onClick(e: Event) {
     const { to, state } = this.props;
     const { origin, pathname } = location;

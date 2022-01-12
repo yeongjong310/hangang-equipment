@@ -1,9 +1,10 @@
-import { transJSXtoDOM } from '@/utils/babel';
-import { Footer, Header, Node } from '@/components';
+import { transJSXtoDOM } from '@/base/transJSXtoDOM';
+import Component from '@/base/Component';
+import { Footer, Header } from '@/components';
 import { RouterContext } from '@/GlobalState/GlobalState';
 
 /** @jsx transJSXtoDOM */
-export class Router extends Node<
+export class Router extends Component<
   unknown,
   {
     isLoading: boolean;

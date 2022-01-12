@@ -1,4 +1,4 @@
-import { transJSXtoDOM } from '@/utils/babel';
+import { transJSXtoDOM } from '@/base/transJSXtoDOM';
 
 interface commonProps {
   children?: HTMLElement[] | HTMLElement | ((...pram: unknown[]) => HTMLElement);
@@ -9,7 +9,7 @@ interface commonProps {
 }
 
 /** @jsx transJSXtoDOM */
-export default class Node<Props = unknown, State = unknown> {
+export default class Component<Props = unknown, State = unknown> {
   $node: ChildNode;
   props?: Props & commonProps;
   state?: State;

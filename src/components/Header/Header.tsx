@@ -1,9 +1,10 @@
-import { transJSXtoDOM } from '@/utils/babel';
-import { Link, Node, Nav } from '@/components';
+import { transJSXtoDOM } from '@/base/transJSXtoDOM';
+import Component from '@/base/Component';
+import { Link, Nav } from '@/components';
 import style from './Header.module.scss';
 
 /** @jsx transJSXtoDOM */
-export default class Header extends Node {
+export default class Header extends Component {
   navButtonId = 'menubutton';
 
   handleToggleMenu(e: Event) {

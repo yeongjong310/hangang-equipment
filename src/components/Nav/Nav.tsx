@@ -1,5 +1,6 @@
-import { transJSXtoDOM } from '@/utils/babel';
-import { Link, Node } from '@/components';
+import { transJSXtoDOM } from '@/base/transJSXtoDOM';
+import Component from '@/base/Component';
+import { Link } from '@/components';
 import style from './Nav.module.scss';
 import arrowSrc from './assets/arrow.svg';
 
@@ -9,7 +10,7 @@ interface Props {
   idRef?: string;
 }
 
-export default class Nav extends Node<Props> {
+export default class Nav extends Component<Props> {
   handleLinkActive(isActive: boolean) {
     return isActive ? style.active : '';
   }

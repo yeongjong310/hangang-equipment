@@ -1,5 +1,5 @@
-import { transJSXtoDOM } from '@/utils/babel';
-import { Node } from '@/components';
+import { transJSXtoDOM } from '@/base/transJSXtoDOM';
+import Component from '@/base/Component';
 import styles from './Title.module.scss';
 import { generateClassName } from '@/utils';
 
@@ -9,7 +9,7 @@ interface Props {
 }
 
 /** @jsx transJSXtoDOM */
-export default class Title extends Node<Props> {
+export default class Title extends Component<Props> {
   template() {
     const { title, description } = this.props;
     return (

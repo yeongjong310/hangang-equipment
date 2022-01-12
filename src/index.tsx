@@ -1,4 +1,4 @@
-import { transJSXtoDOM } from './utils/babel';
+import { transJSXtoDOM } from './base/transJSXtoDOM';
 import App from '@/App/App';
 
 const $root = document.getElementById('root');

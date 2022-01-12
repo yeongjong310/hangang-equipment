@@ -1,5 +1,5 @@
-import { transJSXtoDOM } from '@/utils/babel';
-import { Node } from '@/components';
+import { transJSXtoDOM } from '@/base/transJSXtoDOM';
+import Component from '@/base/Component';
 import styles from './LandingListCard.module.scss';
 import { stringToDOMArray } from '@/utils';
 import { icon } from '@fortawesome/fontawesome-svg-core';
@@ -15,7 +15,7 @@ interface Props {
 }
 
 /** @jsx transJSXtoDOM */
-export default class LandingListCard extends Node<Props> {
+export default class LandingListCard extends Component<Props> {
   getIconArray() {
     const { iconClassName, iconTitle } = this.props.service;
     let targetIcon;
@@ -48,6 +48,7 @@ export default class LandingListCard extends Node<Props> {
 
   template() {
     const { service } = this.props;
+
     return (
       <li class={styles.service}>
         {this.getIconArray.call(this)}

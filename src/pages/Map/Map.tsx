@@ -1,9 +1,10 @@
-import { transJSXtoDOM } from '@/utils/babel';
-import { KaKaoMap, Node, Title } from '@/components';
+import { transJSXtoDOM } from '@/base/transJSXtoDOM';
+import Component from '@/base/Component';
+import { KaKaoMap, Title } from '@/components';
 import style from './Map.module.scss';
 
 /** @jsx transJSXtoDOM */
-export default class Map extends Node {
+export default class Map extends Component {
   template() {
     return (
       <main>

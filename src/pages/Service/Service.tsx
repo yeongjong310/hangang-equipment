@@ -1,5 +1,5 @@
-import { transJSXtoDOM } from '@/utils/babel';
-import { Node } from '@/components';
+import { transJSXtoDOM } from '@/base/transJSXtoDOM';
+import Component from '@/base/Component';
 import styles from './Service.module.scss';
 import { generateClassName } from '@/utils';
 
@@ -24,7 +24,7 @@ const serviceData = {
 };
 
 /** @jsx transJSXtoDOM */
-class Tap extends Node {
+class Tap extends Component {
   componentDidMount() {
     this.setIcons();
   }
@@ -83,7 +83,7 @@ interface State {
   };
 }
 
-export default class Service extends Node<unknown, State> {
+export default class Service extends Component<unknown, State> {
   constructor() {
     super();
 

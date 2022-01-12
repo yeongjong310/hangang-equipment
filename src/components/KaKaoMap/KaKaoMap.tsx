@@ -1,12 +1,11 @@
-import { transJSXtoDOM } from '@/utils/babel';
-import { Node } from '@/components';
+import { transJSXtoDOM } from '@/base/transJSXtoDOM';
+import Component from '@/base/Component';
 import { generateClassName } from '@/utils';
 import style from './KaKaoMap.module.scss';
 import markerSrc from './assets/icon/marker.svg';
 
 function makeOverListener(map: any, marker: any, infowindow: any) {
   return function () {
-    console.log('up');
     infowindow.open(map, marker);
   };
 }
@@ -20,7 +19,7 @@ function makeOutListener(infowindow: any) {
 }
 
 /** @jsx transJSXtoDOM */
-export default class KaKaoMap extends Node {
+export default class KaKaoMap extends Component {
   center = [37.277164773495606, 127.10769716943645];
 
   map: {
@@ -106,17 +105,16 @@ export default class KaKaoMap extends Node {
           position: coords,
         });
 
-        // const content = `<div style="padding: 7px 0px 9px 0px; width: 150px; text-align: center;">한강설비</div>`;
         const content = `
           <div style= 'width: 265px; height: auto; padding: 1rem;'>
             <div class="${style.infoTitle}">
               <span>한강종합설비</span>
               <a href="https://map.naver.com/v5/directions/14149565.670374472,4477793.306416428,%ED%95%9C%EA%B0%95%EC%A2%85%ED%95%A9%EC%84%A4%EB%B9%84,12815085,PLACE_POI/-/-/transit?c=14148632.8961413,4477793.3058404,15,0,0,0,dh" target="_blank" class="link">길찾기</a>
-            </div> 
-            <div class="${style.infoContent}"> 
-                <span class="ellipsis">경기도 용인시 기흥구 신구로53번길 18</span> 
+            </div>
+            <div class="${style.infoContent}">
+                <span class="ellipsis">경기도 용인시 기흥구 신구로53번길 18</span>
                 <span class="jibun ellipsis">(우) 16968 (지번) 신갈동 29-5</span>
-            </div>  
+            </div>
           </div>`;
 
         // 인포윈도우로 장소에 대한 설명을 표시합니다

@@ -1,5 +1,6 @@
-import { transJSXtoDOM } from '@/utils/babel';
-import { LandingListCard, Node, Title } from '@/components';
+import { transJSXtoDOM } from '@/base/transJSXtoDOM';
+import Component from '@/base/Component';
+import { LandingListCard, Title } from '@/components';
 
 import { stringToDOMArray } from '@/utils';
 
@@ -12,7 +13,7 @@ import { faPhoneAlt, faPaperPlane, faHeadset } from '@fortawesome/free-solid-svg
 import { IconLookup } from '@fortawesome/fontawesome-common-types';
 
 /** @jsx transJSXtoDOM */
-export default class Landing extends Node {
+export default class Landing extends Component {
   getIconDOM(icon: IconLookup) {
     const iconTemplete = _icon(icon, {}).html;
     const $icon = stringToDOMArray(iconTemplete[0])[0] as HTMLElement;

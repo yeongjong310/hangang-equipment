@@ -1,5 +1,5 @@
-import { transJSXtoDOM } from '@/utils/babel';
-import { Node } from '@/components';
+import { transJSXtoDOM } from '@/base/transJSXtoDOM';
+import Component from '@/base/Component';
 import style from './ProfileCard.module.scss';
 import { icon } from '@fortawesome/fontawesome-svg-core';
 import { faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
@@ -13,7 +13,7 @@ interface Props {
 }
 
 /** @jsx transJSXtoDOM */
-export default class ProfileCard extends Node<Props> {
+export default class ProfileCard extends Component<Props> {
   getIconDOM() {
     const iconTemplete = icon(faPhoneAlt as IconLookup, {}).html;
     return stringToDOMArray(iconTemplete[0]);
