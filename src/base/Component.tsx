@@ -13,7 +13,6 @@ export default class Component<Props = unknown, State = unknown> {
   $node: ChildNode;
   props?: Props & commonProps;
   state?: State;
-
   constructor(props?: Props & commonProps) {
     this.props = props;
   }
@@ -23,9 +22,8 @@ export default class Component<Props = unknown, State = unknown> {
     this.reRender();
   }
 
-  componentDidMount() {
-    throw new Error('Method not implemented.');
-  }
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  componentDidMount() {}
 
   reRender() {
     const $parent = this.$node.parentNode;
