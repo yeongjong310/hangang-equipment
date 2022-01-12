@@ -23,7 +23,9 @@ export default class Component<Props = unknown, State = unknown> {
     this.reRender();
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    throw new Error('Method not implemented.');
+  }
 
   reRender() {
     const $parent = this.$node.parentNode;
@@ -44,12 +46,7 @@ export default class Component<Props = unknown, State = unknown> {
   }
 
   template(): HTMLElement {
-    try {
-      throw new Error('Method not implemented.');
-    } catch (e) {
-      console.error(e);
-    }
-    return;
+    throw new Error('Method not implemented.');
   }
 
   static component = Symbol.for('JSComponent');
